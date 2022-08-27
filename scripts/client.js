@@ -62,7 +62,7 @@ function displayCost(change) {
 
 function addEmployee () {
     // Salary defaults to '0.00' if no value or non-number entered
-    let salary = $('#salary').val().replace(/$/g, '').replace(/,/g, '');
+    let salary = $('#salary').val().replace('$', '').replace(/,/g, '');
     if (!Number(salary)){
         salary = '0.00';
     }
@@ -86,7 +86,7 @@ function addEmployee () {
         title: $('#title').val(),
         salary: salary
     }
-    
+
     employees.push(employee);
     $('#firstName').val('');
     $('#lastName').val('');
