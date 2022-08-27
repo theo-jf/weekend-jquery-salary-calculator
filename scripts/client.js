@@ -55,6 +55,11 @@ function addEmployee () {
         salary: $('#salary').val()
     }
     employees.push(employee);
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#id').val('');
+    $('#title').val('');
+    $('#salary').val('');
     displayCost(Number(employee.salary));
     displayEmployees();
 }
