@@ -46,6 +46,7 @@ function displayEmployees() {
 }
 
 function displayCost(change) {
+    // Alters monthly cost if cost entered
     if (change) {
         totalMonthlyCost += change;
     }
@@ -53,14 +54,14 @@ function displayCost(change) {
     $('#monthlyCost').empty();
     let costAsString = totalMonthlyCost.toString();
     if (costAsString.indexOf('.') === -1) {
-        costAsString += '.00';
+        costAsString += '.00'; // Re-adds '.00's lost to math on line 51
     }
     let costWithSymbols = costAsString.split(/(?=(?:\d{3})+\.)/).join(",");
     $('#monthlyCost').append(`$${costWithSymbols}`);
 }
 
 function addEmployee () {
-    // Defaults to '0.00' if no value or non-number entered
+    // Salary defaults to '0.00' if no value or non-number entered
     let salary = $('#salary').val().replace(/$/g, '').replace(/,/g, '');
     if (!Number(salary)){
         salary = '0.00';
@@ -85,6 +86,7 @@ function addEmployee () {
         title: $('#title').val(),
         salary: salary
     }
+    
     employees.push(employee);
     $('#firstName').val('');
     $('#lastName').val('');
