@@ -45,3 +45,16 @@ function displayCost(change) {
     $('#monthlyCost').empty();
     $('#monthlyCost').append(`${totalMonthlyCost}`);
 }
+
+function addEmployee () {
+    let employee = {
+        first: $('#firstName').val(),
+        last: $('#lastName').val(),
+        id: $('#id').val(),
+        title: $('#title').val(),
+        salary: $('#salary').val()
+    }
+    employees.push(employee);
+    displayCost(Number(employee.salary));
+    displayEmployees();
+}
