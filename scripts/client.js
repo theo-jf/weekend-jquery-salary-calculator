@@ -9,6 +9,14 @@
 // Stretch goal is to remove a deleted employee's salary from the total
 // Wahoo! You know how to do this already! 
 
+
+//BUG!!!! if you delete and then re-add employee of same value;
+// Add three or more monies of same value
+// Delete one of them
+// Add it again
+// No append, but cost increases
+// Happens with any value
+
 let employees = [];
 let totalMonthlyCost = 0;
 $(readyNow);
@@ -73,14 +81,15 @@ function deleteEmployee() {
         title: employeeToRemoveData.find('td:eq(3)').text(),
         salary: employeeToRemoveData.find('td:eq(4)').text().replace('$', '')
     }
-    console.log(employeeToRemove);
 
     for (let employee of employees) {
         if (JSON.stringify(employee) === JSON.stringify(employeeToRemove)) {
+            console.log(employee);
             let placement = employees.indexOf(employee);
             if (placement > -1) {
                 employees.splice(placement, 1);
             }
+            break;
         }
     }
     displayCost(-Number(employeeToRemove.salary));
