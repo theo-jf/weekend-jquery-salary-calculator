@@ -30,7 +30,7 @@ function displayEmployees() {
             <td>${employee.last}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td id="employeeSalary">${employee.salary}</td>
+            <td id="employeeSalary">$${employee.salary}</td>
             <td><button id="delete">Delete</button></td>
         </tr>
         `);
@@ -43,7 +43,7 @@ function displayCost(change) {
     }
     (totalMonthlyCost > 20000) ? $('#monthlyCost').css('color', 'red') : $('#monthlyCost').css('color', 'black')
     $('#monthlyCost').empty();
-    $('#monthlyCost').append(`${totalMonthlyCost}`);
+    $('#monthlyCost').append(`$${totalMonthlyCost}`);
 }
 
 function addEmployee () {
