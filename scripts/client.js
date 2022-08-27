@@ -38,7 +38,7 @@ function displayEmployees() {
             <td>${employee.last}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td id="employeeSalary">$${employee.salary}</td>
+            <td id="employeeSalary">$${employee.salary.split(/(?=(?:\d{3})+\.)/).join(",")}</td>
             <td><button id="delete">Delete</button></td>
         </tr>
         `);
@@ -51,16 +51,39 @@ function displayCost(change) {
     }
     (totalMonthlyCost > 20000) ? $('#monthlyCost').css('color', 'red') : $('#monthlyCost').css('color', 'black')
     $('#monthlyCost').empty();
-    $('#monthlyCost').append(`$${totalMonthlyCost}`);
+    let costAsString = totalMonthlyCost.toString();
+    if (costAsString.indexOf('.') === -1) {
+        costAsString += '.00';
+    }
+    let costWithSymbols = costAsString.split(/(?=(?:\d{3})+\.)/).join(",");
+    $('#monthlyCost').append(`$${costWithSymbols}`);
 }
 
 function addEmployee () {
+    // Defaults to '0.00' if no value or non-number entered
+    let salary = $('#salary').val().replace(/$/g, '').replace(/,/g, '');
+    if (!Number(salary)){
+        salary = '0.00';
+    }
+    // Adds '.00' to the end of salary string if no decimals entered or if decimals value to zero
+    if ((salary).split('.')[1] == 0 || (salary).split('.')[1] === undefined) {
+        salary *= 1; // Removes any decimal places
+        salary += '.00'; // Converts back to string
+    } else if ((salary).split('.')[1] === '' && Number(salary)) {
+        salary += '00'; // Adds '00' if entered salary ends with only a decimal
+    }
+
+    // Rounds salary and returns as string
+    salary = Number(salary).toFixed(2);
+    // console.log(salary);
+    // console.log(typeof(salary));
+
     let employee = {
         first: $('#firstName').val(),
         last: $('#lastName').val(),
         id: $('#id').val(),
         title: $('#title').val(),
-        salary: $('#salary').val()
+        salary: salary
     }
     employees.push(employee);
     $('#firstName').val('');
@@ -68,7 +91,7 @@ function addEmployee () {
     $('#id').val('');
     $('#title').val('');
     $('#salary').val('');
-    displayCost(Number(employee.salary));
+    displayCost(parseFloat(employee.salary));
     displayEmployees();
 }
 
@@ -79,7 +102,7 @@ function deleteEmployee() {
         last: employeeToRemoveData.find('td:eq(1)').text(),
         id: employeeToRemoveData.find('td:eq(2)').text(),
         title: employeeToRemoveData.find('td:eq(3)').text(),
-        salary: employeeToRemoveData.find('td:eq(4)').text().replace('$', '')
+        salary: employeeToRemoveData.find('td:eq(4)').text().replace('$', '').replace(/,/g, '')
     }
 
     for (let employee of employees) {
