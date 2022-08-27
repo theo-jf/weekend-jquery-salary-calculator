@@ -37,3 +37,11 @@ function displayEmployees() {
     }
 }
 
+function displayCost(change) {
+    if (change) {
+        totalMonthlyCost += change;
+    }
+    (totalMonthlyCost > 20000) ? $('#monthlyCost').css('color', 'red') : $('#monthlyCost').css('color', 'black')
+    $('#monthlyCost').empty();
+    $('#monthlyCost').append(`${totalMonthlyCost}`);
+}
