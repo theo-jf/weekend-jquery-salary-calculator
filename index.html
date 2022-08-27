@@ -16,12 +16,12 @@
     <main>
     <!-- DON'T USE FORMS -->
         <h2>Add Employee</h2>
-        <input type="text" placeholder="First Name" />
-        <input type="text" placeholder="Last Name" />
-        <input type="text" placeholder="ID" />
-        <input type="text" placeholder="Title" />
-        <input type="text" placeholder="Annual Salary" />
-        <button>Submit</button>
+        <input type="text" id="firstName" placeholder="First Name" />
+        <input type="text" id="lastName" placeholder="Last Name" />
+        <input type="text" id="id" placeholder="ID" />
+        <input type="text" id="title"  placeholder="Title" />
+        <input type="text" id="salary" placeholder="Annual Salary" />
+        <button id="submit">Submit</button>
 
         <h2>Employees</h2>
         <table>
@@ -32,12 +32,13 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Annual Salary</th>
-                    <th>Delete btn Here</th>
+                    <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="employeeTable">
             </tbody>
         </table>
+        <h3>Total Monthly Cost: <span id="monthlyCost"></span></h3>
     </main>
 </body>
 </html>
