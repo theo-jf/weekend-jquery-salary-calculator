@@ -58,3 +58,26 @@ function addEmployee () {
     displayCost(Number(employee.salary));
     displayEmployees();
 }
+
+function deleteEmployee() {
+    let employeeToRemoveData = $(this).closest("#employeeData");
+    let employeeToRemove = {
+        first: employeeToRemoveData.find("td:eq(0)").text(),
+        last: employeeToRemoveData.find("td:eq(1)").text(),
+        id: employeeToRemoveData.find("td:eq(2)").text(),
+        title: employeeToRemoveData.find("td:eq(3)").text(),
+        salary: employeeToRemoveData.find("td:eq(4)").text(),
+    }
+    console.log(employeeToRemove);
+
+    for (let employee of employees) {
+        if (JSON.stringify(employee) === JSON.stringify(employeeToRemove)) {
+            let placement = employees.indexOf(employee);
+            if (placement > -1) {
+                employees.splice(placement, 1);
+            }
+        }
+    }
+    displayCost(-Number(employeeToRemove.salary));
+    $(this).closest('#employeeData').remove();
+}
