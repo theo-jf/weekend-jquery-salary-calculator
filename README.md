@@ -7,7 +7,7 @@ For this assignment, we were required to create a webpage that recorded inputs o
 
 Each row of table data was also required to contain a delete button, which upon selection, would delete the corresponding employee's information from both the table and the array.
 
-Lastly, a 'total monthly cost' was required to be implemented which would update based on the employee salaries entered. If the monthly cost exceeded $20,000, the color of the cost was to turn <span style="color: red">red</span>.
+Lastly, a 'total monthly cost' was required to be implemented which would update based on the employee salaries entered. If the monthly cost exceeded $20,000, the color of the cost was to turn red.
 
 It was a personal goal to have a dollar sign, commas, and cents display in the annual salaries and total monthly cost in the appropriate places regardless of user input. 
 
