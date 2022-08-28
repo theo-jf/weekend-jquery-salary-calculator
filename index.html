@@ -17,7 +17,7 @@
         <main class="main">
         <!-- DON'T USE FORMS -->
             <div class="employeeInputs">
-                <h2 class="inputsTitle">Add Employee</h2>
+                <h2 class="title">Add Employee</h2>
                 <input type="text" class="input" id="firstName" placeholder="First Name" />
                 <input type="text" class="input" id="lastName" placeholder="Last Name" />
                 <input type="text" class="input" id="id" placeholder="ID" />
@@ -26,16 +26,16 @@
                 <button id="submit">Submit</button>
             </div>
             <div class="employeeDisplay">
-                <h2>Employees</h2>
-                <table>
+                <h2 class="title">Employees</h2>
+                <table class="table">
                     <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Annual Salary</th>
-                            <th></th>
+                        <tr class="tableTitles">
+                            <th class="tableHead">First Name</th>
+                            <th class="tableHead">Last Name</th>
+                            <th class="tableHead">ID</th>
+                            <th class="tableHead">Title</th>
+                            <th class="tableHead">Annual Salary</th>
+                            <th class="tableHead"></th>
                         </tr>
                     </thead>
                     <tbody id="employeeTable">

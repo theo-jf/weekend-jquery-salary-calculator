@@ -10,7 +10,7 @@ body {
     width: 100px;
     font-size: 18px;
     padding: 4px;
-    margin-left: 30px;
+    margin: 5px;
 }
 
 .main {
@@ -33,15 +33,18 @@ body {
     display: inline-block;
     text-align: left;
     width: fit-content;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.inputsTitle {
+.title {
     font-size: 30px;
 }
 
 .input {
     font-size: 18px;
-    width: 150px;
+    width: 90%;
+    max-width: 200px;
     margin: 5px;
     padding: 3px;
     padding-right: 20px;
@@ -50,6 +53,19 @@ body {
 }
 
 .employeeDisplay {
-    display: block;
+    display: inline-block;
     text-align: left;
+}
+
+.table {
+    border-collapse: collapse;
+    empty-cells: show;
+}
+
+.tableTitles {
+    font-size: 25px;
+}
+
+.tableHead {
+    border: 1px solid;
 }
