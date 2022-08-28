@@ -27,7 +27,7 @@ function displayEmployees() {
 }
 
 function displayCost(change) {
-    // A cost if cost entered
+    // Update cost if cost entered
     if (change) {
         totalCost += change;
     }
