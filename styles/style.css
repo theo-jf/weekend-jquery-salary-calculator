@@ -1,5 +1,10 @@
 body {
     margin: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+th {
+    font-weight: normal;
 }
 
 #monthlyCost {
@@ -20,18 +25,19 @@ body {
 .header {
     margin: 0;
     text-align: center;
-    background-color: grey; 
+    color: white;
+    background-color: rgb(72, 77, 77); 
 }
 
 .mainTitle {
     margin: 0;
-    padding: 50px;
+    padding: 30px;
     font-size: 40px;
 }
 
 .employeeInputs {
     display: inline-block;
-    text-align: left;
+    text-align: center;
     width: fit-content;
     margin-left: 20px;
     margin-right: 20px;
@@ -39,12 +45,24 @@ body {
 
 .title {
     font-size: 30px;
+    text-align: left;
+}
+
+.h2AndCost {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cost {
+    align-self: flex-end;
+    padding-left: 30px;
 }
 
 .input {
     font-size: 18px;
     width: 90%;
-    max-width: 200px;
+    max-width: 250px;
+    min-width: 250px;
     margin: 5px;
     padding: 3px;
     padding-right: 20px;
@@ -65,7 +83,8 @@ body {
 }
 
 .tableTitles {
-    font-size: 20px;
+    font-size: 16px;
+    background-color: rgb(240, 240, 240);
 }
 
 .tableHead {
@@ -89,6 +108,11 @@ body {
 
 .titleHead {
     width: 110px;
+}
+
+.deleteHead {
+    width: 60px;
+    min-width: 60px;
 }
 
 .tableData {

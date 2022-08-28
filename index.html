@@ -12,21 +12,24 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="mainTitle">Employee Calculator</h1>
+            <h1 class="mainTitle">Salary Calculator</h1>
         </header>
         <main class="main">
         <!-- DON'T USE FORMS -->
             <div class="employeeInputs">
                 <h2 class="title">Add Employee</h2>
-                <input type="text" class="input" id="firstName" placeholder="First Name" />
-                <input type="text" class="input" id="lastName" placeholder="Last Name" />
-                <input type="text" class="input" id="id" placeholder="ID" />
-                <input type="text" class="input" id="title"  placeholder="Title" />
-                <input type="text" class="input" id="salary" placeholder="Annual Salary" pattern="[0-9]+" />
+                <input type="text" class="input" id="firstName" placeholder="first name" />
+                <input type="text" class="input" id="lastName" placeholder="last name" />
+                <input type="text" class="input" id="id" placeholder="id" />
+                <input type="text" class="input" id="title"  placeholder="title" />
+                <input type="text" class="input" id="salary" placeholder="annual salary" pattern="[0-9]+" />
                 <button id="submit">Submit</button>
             </div>
             <div class="employeeDisplay">
-                <h2 class="title">Employees</h2>
+                <div class="h2AndCost">
+                    <h2>Employees</h2>
+                    <h3 class="cost">Total Monthly Cost: <span id="monthlyCost"></span></h3>
+                </div>
                 <table class="table">
                     <thead>
                         <tr class="tableTitles">
@@ -41,7 +44,6 @@
                     <tbody id="employeeTable">
                     </tbody>
                 </table>
-                <h3>Total Monthly Cost: <span id="monthlyCost"></span></h3>
             </div>    
         </main>
     </div>    
