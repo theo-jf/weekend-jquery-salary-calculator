@@ -1,5 +1,5 @@
 let employees = [];
-let totalMonthlyCost = 0;
+let totalCost = 0;
 $(readyNow);
 
 function readyNow() {
@@ -27,10 +27,11 @@ function displayEmployees() {
 }
 
 function displayCost(change) {
-    // Alters monthly cost if cost entered
+    // A cost if cost entered
     if (change) {
-        totalMonthlyCost += change;
+        totalCost += change;
     }
+    let totalMonthlyCost =  totalCost / 12;
     (totalMonthlyCost > 20000) ? $('#monthlyCost').css('color', 'red') : $('#monthlyCost').css('color', 'black')
     $('#monthlyCost').empty();
     let costAsString = totalMonthlyCost.toFixed(2);
