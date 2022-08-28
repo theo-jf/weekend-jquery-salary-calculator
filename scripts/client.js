@@ -34,12 +34,12 @@ function displayEmployees() {
     for (let employee of employees) {
         $('#employeeTable').append(`
         <tr id="employeeData">
-            <td>${employee.first}</td>
-            <td>${employee.last}</td>
-            <td>${employee.id}</td>
-            <td>${employee.title}</td>
-            <td id="employeeSalary">$${employee.salary.split(/(?=(?:\d{3})+\.)/).join(",")}</td>
-            <td><button id="delete">Delete</button></td>
+            <td class="tableData">${employee.first}</td>
+            <td class="tableData">${employee.last}</td>
+            <td class="tableData">${employee.id}</td>
+            <td class="tableData">${employee.title}</td>
+            <td id="employeeSalary" class="tableData">$${employee.salary.split(/(?=(?:\d{3})+\.)/).join(",")}</td>
+            <td class="tableData delete"><button id="delete">Delete</button></td>
         </tr>
         `);
     }
@@ -63,7 +63,7 @@ function displayCost(change) {
 function addEmployee () {
     // Salary defaults to '0.00' if no value or non-number entered
     let salary = $('#salary').val().replace('$', '').replace(/,/g, '');
-    if (!Number(salary)){
+    if (!Number(salary) || salary.indexOf('-') > -1){
         salary = '0.00';
     }
     // Adds '.00' to the end of salary string if no decimals entered or if decimals value to zero
