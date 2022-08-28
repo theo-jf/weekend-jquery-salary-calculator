@@ -35,7 +35,9 @@ function displayCost(change) {
     (totalMonthlyCost > 20000) ? $('#monthlyCost').css('color', 'red') : $('#monthlyCost').css('color', 'black')
     $('#monthlyCost').empty();
     let costAsString = totalMonthlyCost.toFixed(2);
-
+    
+    // Removes leftover negative sign from subtractions with difference of zero
+    costAsString = costAsString.replace('-', '');
     // Adds commas every three numbers starting from decimal
     let costWithSymbols = costAsString.split(/(?=(?:\d{3})+\.)/).join(",");
     $('#monthlyCost').append(`$${costWithSymbols}`);
