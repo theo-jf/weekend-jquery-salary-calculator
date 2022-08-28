@@ -52,32 +52,22 @@ function displayCost(change) {
     }
     (totalMonthlyCost > 20000) ? $('#monthlyCost').css('color', 'red') : $('#monthlyCost').css('color', 'black')
     $('#monthlyCost').empty();
-    let costAsString = totalMonthlyCost.toString();
-    if (costAsString.indexOf('.') === -1) {
-        costAsString += '.00'; // Re-adds '.00's lost to math on line 51
-    }
+    let costAsString = totalMonthlyCost.toFixed(2);
+
+    // Adds commas every three numbers starting from decimal
     let costWithSymbols = costAsString.split(/(?=(?:\d{3})+\.)/).join(",");
     $('#monthlyCost').append(`$${costWithSymbols}`);
 }
 
 function addEmployee () {
-    // Salary defaults to '0.00' if no value or non-number entered
+    // Salary defaults to '0.00' if no value, non-number, or negative entered
     let salary = $('#salary').val().replace('$', '').replace(/,/g, '');
     if (!Number(salary) || salary.indexOf('-') > -1){
         salary = '0.00';
     }
-    // Adds '.00' to the end of salary string if no decimals entered or if decimals value to zero
-    if ((salary).split('.')[1] == 0 || (salary).split('.')[1] === undefined) {
-        salary *= 1; // Removes any decimal places
-        salary += '.00'; // Converts back to string
-    } else if ((salary).split('.')[1] === '' && Number(salary)) {
-        salary += '00'; // Adds '00' if entered salary ends with only a decimal
-    }
 
     // Rounds salary and returns as string
     salary = Number(salary).toFixed(2);
-    // console.log(salary);
-    // console.log(typeof(salary));
 
     let employee = {
         first: $('#firstName').val(),
